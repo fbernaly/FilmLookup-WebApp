@@ -12,7 +12,7 @@ header {
     color: white;
 }
 
-header div {
+header div, body div {
     max-width: 800px;
     margin: auto
 }

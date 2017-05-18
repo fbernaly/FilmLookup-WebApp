@@ -12,7 +12,7 @@ catch(PDOException $e)
     die();
 }
 
-$film = 22; //intval($_GET['film_number']);
+$film = intval($_GET['film_number']);
 
 echo "<table>
 <tr>
