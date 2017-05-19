@@ -1,18 +1,9 @@
 <?php
-include 'vars.php';
-
-try {
-    $conn = new PDO("pgsql:host=$servername;dbname=$dbname", $username, $password);
-// set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $e)
-{
-    echo "Connection failed: " . $e->getMessage();
-    die();
-}
+include 'conn.php';
 
 $film = intval($_GET['film_number']);
+
+//set_time_limit(0);
 
 echo "<table>
 <tr>

@@ -8,7 +8,7 @@
     <meta name="description" content="Film Lookup for Sacramento FamilySearch Library">
     <meta name="author" content="Francisco Bernal">
     <link rel="stylesheet" type="text/css" href="styles/main.css"> </head>
-    <script type="text/javascript" src="lookup.js"></script>
+    <script type="text/javascript" src="scripts/lookup.js"></script>
 
     <body>
         <header>
@@ -35,6 +35,8 @@
                <input type="text" id="film_number" placeholder="Film number">
                <br>
                <button onclick="lookup()">Search</button>
+               <div id="readyState"></div>
+               <div id="status"></div>
                <div id="output"></div>
            </center>
        </div>
