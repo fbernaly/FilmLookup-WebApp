@@ -6,24 +6,37 @@
     <meta http-equiv="Content-Language" content="en-us" />
     <meta charset="UTF-8">
     <meta name="description" content="Sign Up for Film Lookup for Sacramento FamilySearch Library">
-    <meta name="author" content="Francisco Bernal"> </head>
+    <meta name="author" content="Francisco Bernal">
+    <script type="text/javascript" src="scripts/validation.js"></script>
+</head>
 
 <body>
     <section>
         <h2>Sign Up</h2>
-        <form method="post">
-            <label for="username"> First Name *
-                <input type="text" id="firstname" name="firstname" placeholder="First Name" required /> </label>
-            <label for="lastname">Last Name *
-                <input type="text" id="lastname" name="lastname" placeholder="Last Name" required /> </label>
-            <label for="tel">Mobile *
-                <input type="tel" id="tel" name="tel" pattern="^\d{10}$" placeholder="Please enter a ten digit phone number" required /> </label>
-            <label for="email">Email *
-                <input type="email" id="email" name="email" placeholder="e.g. swapnil@example.com" title="Enter a valid email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required /> </label>
-            <label for="password"> Password *
-                <input type="password" name="password" id="password" placeholder="Password must contain 1 uppercase, lowercase and number" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required /> </label>
-            <button type="submit" class="btn-minimal">Sign Up</button>
-        </form>
+        <center>
+            <form action="scripts/signup.php" onsubmit="return validatePasswords()" method="post"> First Name *
+                <br>
+                <input type="text" id="firstname" name="firstname" placeholder="First Name" required />
+                <br> Last Name *
+                <br>
+                <input type="text" id="lastname" name="lastname" placeholder="Last Name" required />
+                <br>Mobile *
+                <br>
+                <input type="tel" id="mobile" name="mobile" pattern="^\d{10}$" placeholder="Please enter a ten digit phone number" required />
+                <br>Email *
+                <br>
+                <input type="email" id="email" name="email" placeholder="e.g. swapnil@example.com" title="Enter a valid email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required />
+                <br>Password *
+                <br>
+                <input type="password" name="password" id="password" placeholder="Password must contain 1 uppercase, lowercase and number" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required />
+                <br>Confirm Password *
+                <br>
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Password must contain 1 uppercase, lowercase and number" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required />
+                <br>
+                <br>
+                <button type="submit">Sign Up</button>
+            </form>
+        </center>
     </section>
     <footer>
         <p>Published: May, 2017</p>
