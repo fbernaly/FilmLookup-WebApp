@@ -1,6 +1,6 @@
 \i filmlookup.sql
 
-INSERT INTO public.user (firstName, lastName, email) VALUES ('Francisco', 'Bernal', 'fbernaly@gmail.com');
+INSERT INTO public.user (firstName, lastName, email, mobile, password) VALUES ('Francisco', 'Bernal', 'fbernaly@gmail.com', '7063511553', '12345678');
 
 INSERT INTO public.film (number, located_at, created_by, updated_by)  VALUES (5, 1, 1, 1);
 INSERT INTO public.film (number, located_at, created_by, updated_by)  VALUES (292, 1, 1, 1);

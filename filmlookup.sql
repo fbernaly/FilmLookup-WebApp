@@ -36,6 +36,8 @@ CREATE TABLE public.user (
     firstName       varchar(40) NOT NULL,
     lastName        varchar(40) NOT NULL,
     email           varchar(40) NOT NULL UNIQUE,
+    mobile          varchar(40) NOT NULL,
+    password        varchar(40) NOT NULL,
     role_id         int NOT NULL REFERENCES public.role(id) DEFAULT 1,
     created_at      TIMESTAMP DEFAULT NOW(),
     updated_at      TIMESTAMP DEFAULT NOW()
