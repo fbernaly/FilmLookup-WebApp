@@ -16,7 +16,7 @@ function setNavBar(id) {
     if (firstname == null) {
         setTitle(id, true);
         var nav = document.createElement('nav');
-        nav.innerHTML = "<ul><li><a href=\"login.html\">Log In</a></li><li><a href=\"signup.html\">Sign Up</a></li></ul>";
+        nav.innerHTML = "<ul><li><a href='index.html'>Home</a></li><li><a href=\"login.html\">Log In</a></li><li><a href=\"signup.html\">Sign Up</a></li></ul>";
         document.getElementById(id).appendChild(nav);
     } else {
         setTitle(id, true);
