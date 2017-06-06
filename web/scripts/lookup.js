@@ -105,21 +105,13 @@ function addFilm() {
     } else {
         document.getElementById("response").innerHTML = "";
         var xmlhttp = new XMLHttpRequest();
+        xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == XMLHttpRequest.DONE) {
                 if (xmlhttp.status == 200) {
-                    if (xmlhttp.responseText.includes('Not Found')) {
-                        xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-                if (xmlhttp.status == 200) {
-                    if (xmlhttp.responseText == "ok") {
-                        document.getElementById("response").innerHTML = "Film " + film + " added";
-                        getFilms('all_films');
-                    } else {
-                        document.getElementById("response").innerHTM = "Film " + film + " not added";;
-                    }
-                } else {
+                    document.getElementById("response").innerHTML = xmlhttp.responseText;
+                }
+                else {
                     alert('There was a problem with the request.');
                 }
             }
@@ -128,16 +120,6 @@ function addFilm() {
         xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         var email = getItem('email');
         xmlhttp.send('film_number=' + film + '&email=' + email);
-                        } else {
-                           document.getElementById("response").innerHTML = "<p>Film " + film + " already in database</p>"; 
-                        }
-                } else {
-                    alert('There was a problem with the request.');
-                }
-            }
-        };
-        xmlhttp.open('GET', 'scripts/lookup.php?film_number=' + film);
-        xmlhttp.send();
     }
 }
 
