@@ -3,7 +3,7 @@ function setWelcomeMessage(id) {
     if (user == null) {
         document.getElementById(id).innerHTML = "<p>Welcome to the Film Lookup Service for the Sacramento FamilySearch Library. Now you can look up your films in a quick and reliable way.</p><p>As a patron you can enter the film number you are looking for and get a quick response.</p><p>If you are an admin login to add or remove more films to the database.</p>";
     } else {
-        document.getElementById(id).innerHTML = "<p>Welcome " + user + "</p>";
+        document.getElementById(id).innerHTML = "<p>Welcome " + user + "to the Film Lookup Service for the Sacramento FamilySearch Library.</p>";
     }
 }
 
