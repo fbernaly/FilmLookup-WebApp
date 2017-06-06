@@ -110,7 +110,7 @@ function addFilm() {
                     if (xmlhttp.responseText == "ok") {
                         document.getElementById("response").innerHTML = "Film " + film + " added";
                         getFilms('all_films');
-                    } else if (xmlhttp.responseText == "error") {
+                    } else {
                         document.getElementById("response").innerHTM = "Film " + film + " not added";;
                     }
                 } else {
