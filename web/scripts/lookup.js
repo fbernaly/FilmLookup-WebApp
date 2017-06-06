@@ -110,6 +110,7 @@ function addFilm() {
             if (xmlhttp.readyState == XMLHttpRequest.DONE) {
                 if (xmlhttp.status == 200) {
                     document.getElementById("response").innerHTML = xmlhttp.responseText;
+                    getFilms('all_films');
                 }
                 else {
                     alert('There was a problem with the request.');
