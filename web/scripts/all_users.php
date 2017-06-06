@@ -14,11 +14,14 @@ foreach ($conn->query("SELECT u.firstName || ' ' || u.lastName AS user, u.email 
     echo "<tr>";
     echo "<td>" . $row['user'] . "</td>";
     echo "<td>" . $row['email'] . "</td>";
-    echo "<td>" . $row['role'];
-    echo "<label class=\"switch\">";
-    echo "<input type=\"checkbox\" checked>";
-    echo "<div class=\"slider round\"></div>";
+    echo "<td>";
+    echo "<div class=\"onoffswitch\">";
+    echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"" . $row['email'] . "\" checked>";
+    echo "<label class=\"onoffswitch-label\" for=\"" . $row['email'] . "\">";
+    echo "<span class=\"onoffswitch-inner\"></span>";
+    echo "<span class=\"onoffswitch-switch\"></span>";
     echo "</label>";
+    echo "</div>";
     echo "</td>";
     echo "</tr>";
 }
