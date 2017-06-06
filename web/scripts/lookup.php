@@ -31,6 +31,6 @@ if (count($rows) > 0) {
     echo "<p>Film '$film' Not Found</p>";
 }
 
-$conn=null;
+$conn = null;
 
 ?>

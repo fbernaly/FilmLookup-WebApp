@@ -6,23 +6,28 @@
     <meta http-equiv="Content-Language" content="en-us" />
     <meta charset="UTF-8">
     <meta name="description" content="Login for Film Lookup for Sacramento FamilySearch Library">
-    <meta name="author" content="Francisco Bernal"> </head>
+    <meta name="author" content="Francisco Bernal">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <script type="text/javascript" src="scripts/lookup.js"></script>
+    <script type="text/javascript" src="scripts/content.js"></script>
+</head>
 
-<body>
-    <section>
-        <h2>Login</h2>
-        <form method="post">
-            <label for="username"> Username:
-                <input type="text" name="username" id="username" placeholder="Username must be between 8 and 20 characters" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" /> </label>
-            <label for="password"> Password:
-                <input type="password" name="password" id="password" placeholder="Password must contain 1 uppercase, lowercase and number" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" /> </label>
-            <button type="submit" class="btn-minimal">Log In</button>
-        </form>
-    </section>
-    <footer>
-        <p>Published: May, 2017</p>
-        <p>©2017 fby</p>
-    </footer>
+<body onload="setFooter('footer'); setNavBar('header');">
+    <header id="header"></header>
+    <div>
+        <center>
+            <br>
+            <input type="text" name="email" id="email" placeholder="Enter your email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required />
+            <br> Password:
+            <br>
+            <input type="password" name="password" id="password" placeholder="Enter your password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+            <br>
+            <button onclick="login()">Log In</button>
+            <br>
+            <div id="response"></div>
+        </center>
+    </div>
+    <footer id="footer"></footer>
 </body>
 
 </html>
