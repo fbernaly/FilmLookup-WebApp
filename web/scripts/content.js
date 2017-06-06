@@ -58,7 +58,7 @@ function setMyAccount(id) {
     var mobile = getItem("mobile");
     var role = getItem("role");
     
-    document.getElementById(id).innerHTML = "<h3>Contact Information</h3><p>" + firstname + " " + lastname + "</p><p>" + email + "</p><p>" + mobile + "</p><p>" + role + "</p><p>********</p><button onclick=\"editInfo()\">Edit</button>";
+    document.getElementById(id).innerHTML = "<h3>Contact Information</h3><p>" + firstname + " " + lastname + "</p><p>" + email + "</p><p>" + mobile + "</p><p>" + role + "</p><p>********</p>";
 }
 
 function editInfo() {
