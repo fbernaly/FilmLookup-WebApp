@@ -120,7 +120,6 @@ function addFilm() {
     } else {
         document.getElementById("response").innerHTML = "";
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == XMLHttpRequest.DONE) {
                 if (xmlhttp.status == 200) {
@@ -137,6 +136,23 @@ function addFilm() {
         var email = getItem('email');
         xmlhttp.send('film_number=' + film + '&email=' + email);
     }
+}
+
+function updateRole(email, admin) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            if (xmlhttp.status == 200) {
+            }
+            else {
+                alert('There was a problem with the request.');
+            }
+        }
+    };
+    xmlhttp.open('POST', 'scripts/update_role.php');
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    var role = admin == true ? "2" : "1";
+    xmlhttp.send('email=' + email + '&role=' + role);
 }
 
 function setItem(key, value) {
