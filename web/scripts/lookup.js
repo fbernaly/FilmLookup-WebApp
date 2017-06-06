@@ -58,6 +58,22 @@ function login() {
     xmlhttp.send('email=' + email + '&password=' + password);
 }
 
+function getFilms(id) {
+     var xmlhttp = new XMLHttpRequest();
+     xmlhttp.onreadystatechange = function () {
+         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+             if (xmlhttp.status == 200) {
+                 document.getElementById(id).innerHTML = xmlhttp.responseText;
+             }
+             else {
+                 alert('There was a problem with the request.');
+             }
+         }
+     };
+     xmlhttp.open('GET', 'scripts/all_data.php');
+     xmlhttp.send();
+}
+
 function setItem(key, value) {
     if (typeof (Storage) !== "undefined") {
         sessionStorage.setItem(key, value);
