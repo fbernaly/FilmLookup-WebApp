@@ -40,11 +40,12 @@ function login() {
                     return;
                 }
                 document.getElementById("response").innerHTML = "<p>User logged in</p>";
-                if (typeof (Storage) !== "undefined") {
-                    // Store
-                    sessionStorage.setItem("user", response);
-                    sessionStorage.setItem("email", email);
-                }
+                var json = JSON.parse(response);;
+                setItem("firstname", json['firstname']);
+                setItem("lastname", json['lastname']);
+                setItem("email", json['email']);
+                setItem("mobile", json['mobile']);
+                setItem("role", json['role']);
                 window.location.href = "index.html";
             }
             else {
@@ -55,4 +56,10 @@ function login() {
     xmlhttp.open('POST', 'scripts/login.php', true);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xmlhttp.send('email=' + email + '&password=' + password);
+}
+
+function setItem(key, value) {
+    if (typeof (Storage) !== "undefined") {
+        sessionStorage.setItem(key, value);
+    }
 }
