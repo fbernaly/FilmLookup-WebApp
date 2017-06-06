@@ -21,7 +21,15 @@ function setNavBar(id) {
     } else {
         setTitle(id, true);
         var nav = document.createElement('nav');
-        nav.innerHTML = "<ul><li><a href='index.html'>Home</a></li><li><a href='acount.html'>My account</a></li><li><a href='manage.html'>Films</a></li><li><a href='index.html' onclick='logout()'>Log Out</a></li></ul>";
+        var html = "<ul><li><a href='index.html'>Home</a></li>"
+        html += "<li><a href='acount.html'>My account</a></li>";
+        var role = getItem("role");
+        if (role == "admin") {
+            html += "<li><a href='users.html'>Users</a></li>";
+            html += "<li><a href='manage.html'>Films</a></li>";
+        }
+        html += "<li><a href='index.html' onclick='logout()'>Log Out</a></li></ul>";
+        nav.innerHTML = html;
         document.getElementById(id).appendChild(nav);
     }
 }
