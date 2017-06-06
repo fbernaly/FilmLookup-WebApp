@@ -74,6 +74,29 @@ function getFilms(id) {
      xmlhttp.send();
 }
 
+function deleteFilm(button) {
+     var row = button.parentNode.parentNode;
+     var film = row.firstChild.firstChild.nodeValue;
+     if (film == null) {
+         alert('Error');
+         return;
+     }
+     var xmlhttp = new XMLHttpRequest();
+     xmlhttp.onreadystatechange = function () {
+         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+             if (xmlhttp.status == 200) {
+                 row.parentNode.removeChild(row);
+                 alert("Film " + film + " was removed.");
+             }
+             else {
+                 alert('There was a problem with the request.');
+             }
+         }
+     };
+     xmlhttp.open('GET', 'scripts/delete.php?film_number=' + film);
+     xmlhttp.send();
+}
+
 function setItem(key, value) {
     if (typeof (Storage) !== "undefined") {
         sessionStorage.setItem(key, value);
