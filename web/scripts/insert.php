@@ -11,7 +11,7 @@ try {
     $stmt->execute();
     echo "ok";
 } catch (PDOException $e) {
-    echo "error";
+    echo $e->getMessage();
 }
 
 $conn = null;
