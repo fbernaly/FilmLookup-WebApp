@@ -15,6 +15,12 @@
 <body onload="setFooter('footer'); setNavBar('header'); getFilms('all_films');">
     <header id="header"></header>
     <br>
+    <h3>Add Film</h3>
+    <center>
+        <input type="text" id="film_number" placeholder="Film number">
+        <button onclick="addFilm()">Add</button>
+        <div id="response"></div>
+    </center>
     <h3>All Films</h3>
     <center id="all_films"></center>
     <footer id="footer"></footer>

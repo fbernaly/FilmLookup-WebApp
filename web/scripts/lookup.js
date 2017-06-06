@@ -97,6 +97,34 @@ function deleteFilm(button) {
      xmlhttp.send();
 }
 
+function addFilm() {
+    var film = document.getElementById("film_number").value;
+    if (film == "") {
+        document.getElementById("response").innerHTML = "Film number missing";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                if (xmlhttp.status == 200) {
+                    if (xmlhttp.responseText == "ok") {
+                        document.getElementById("response").innerHTML = "Film " + film + " added";
+                        getFilms('all_films');
+                    } else if (xmlhttp.responseText == "error") {
+                        document.getElementById("response").innerHTM = "Film " + film + " not added";;
+                    }
+                } else {
+                    alert('There was a problem with the request.');
+                }
+            }
+        };
+        xmlhttp.open('POST', 'scripts/insert.php', true);
+        xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        var email = getItem('email');
+        xmlhttp.send('film_number=' + film + '&email=' + email);
+    }
+}
+
 function setItem(key, value) {
     if (typeof (Storage) !== "undefined") {
         sessionStorage.setItem(key, value);
