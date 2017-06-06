@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
 
-<body>
+<head>
+    <title>Sign Up</title>
+    <meta http-equiv="Content-Language" content="en-us" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Sign Up for Film Lookup for Sacramento FamilySearch Library">
+    <meta name="author" content="Francisco Bernal">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <script type="text/javascript" src="content.js"></script>
+</head>
+    
+<body onload="setFooter('footer'); setTitle('header');">
+    <header id="header"></header>
 	<?php
 	include 'conn.php';
 	$firstname = $_POST['firstname'];
@@ -37,6 +48,7 @@
 	}
 	$conn = null;
 	?>
+    <footer id="footer"></footer>
 </body>
 
 </html>

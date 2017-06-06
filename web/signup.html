@@ -7,12 +7,15 @@
     <meta charset="UTF-8">
     <meta name="description" content="Sign Up for Film Lookup for Sacramento FamilySearch Library">
     <meta name="author" content="Francisco Bernal">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
     <script type="text/javascript" src="scripts/validation.js"></script>
+    <script type="text/javascript" src="scripts/content.js"></script>
 </head>
-
-<body>
-    <section>
-        <h2>Sign Up</h2>
+    
+<body onload="setFooter('footer'); setNavBar('header');">
+    <header id="header"></header>
+    <div>
+        <br>
         <center>
             <form action="scripts/signup.php" onsubmit="return validatePasswords()" method="post"> First Name *
                 <br>
@@ -37,11 +40,8 @@
                 <button type="submit">Sign Up</button>
             </form>
         </center>
-    </section>
-    <footer>
-        <p>Published: May, 2017</p>
-        <p>©2017 fby</p>
-    </footer>
+    </div>
+    <footer id="footer"></footer>
 </body>
 
 </html>
