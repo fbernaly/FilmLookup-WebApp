@@ -17,12 +17,17 @@ function setupNav() {
         if (user.isAdmin()) {
             html += '<li><a href="users.html">Users</a></li>'
         }
-        html += '<li><a href="/logout">Log Out</a></li>'
+        html += '<li><a onclick="logout()">Log Out</a></li>'
     } else {
         html += '<li><a href="login.html">Login</a></li>'
         html += '<li><a href="signup.html">Sign Up</a></li>'
     }
     document.getElementById('ul_nav').innerHTML = html
+}
+
+function logout() {
+    sessionStorage.user = '{}';
+    window.location.href = "index.html";
 }
 
 function setupHeaderSubtitle() {
