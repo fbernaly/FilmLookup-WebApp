@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Account</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Film Lookup Service">
+    <meta name="author" content="Francisco Bernal">
+    <meta http-equiv="Content-Language" content="en-us">
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <script type="text/javascript" src="js/user.js"></script>
+    <script type="text/javascript" src="js/account.js"></script>
+    <script type="text/javascript" src="js/logout.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="header">
+            <h1>Film Lookup</h1>
+            <h2>My Account</h2>
+        </header>
+
+        <nav class="nav">
+            <ul id="ul_nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">My Account</a></li>
+                <li><a id ="users_link" href="users.html">Users</a></li>
+                <li><a onclick="logout()">Log Out</a></li>
+            </ul>
+        </nav>
+
+        <article class="article">
+            <br>
+            <h2>Contact Information</h2>
+            <p id="p_fullname"></p>
+            <p id="p_email"></p>
+            <p id="p_mobile"></p>
+            <p id="p_role"></p>
+            <br>
+            <p id="p_patron" style="visibility: hidden; opacity: 0;">You are still a patron, need to wait for another admin to grant you admin privileges.</p>
+        </article>
+
+        <footer class="footer">
+            <p>&copy; 2017 fbernaly</p>
+        </footer>
+    </div>
+</body>
+
+</html>
