@@ -1,4 +1,5 @@
 function User(json) {
+    this.id = json.id;
     this.firstName = json.firstName;
     this.lastName = json.lastName;
     this.email = json.email;
@@ -8,6 +9,6 @@ function User(json) {
         return this.role == "admin"
     };
     this.isAuthenticated = function () {
-        return this.firstName != null && this.lastName != null && this.email != null && this.mobile != null && this.role != null
+        return this.id != null && this.firstName != null && this.lastName != null && this.email != null && this.mobile != null && this.role != null
     };
 }

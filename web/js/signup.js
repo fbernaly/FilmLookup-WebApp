@@ -27,7 +27,7 @@ function signup() {
                 var json = JSON.parse(xmlhttp.responseText);
                 var success = json['success'];
                 if (success) {
-                    sessionStorage.user = JSON.stringify(json['user']);
+                    sessionStorage.user = JSON.stringify(json['data']);
                     window.location.href = "index.html";
                 } else {
                     var message = json['error'];
