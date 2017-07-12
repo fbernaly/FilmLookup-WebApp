@@ -11,4 +11,7 @@ function User(json) {
     this.isAuthenticated = function () {
         return this.id != null && this.firstName != null && this.lastName != null && this.email != null && this.mobile != null && this.role != null
     };
+    this.fullName = function () {
+        return this.firstName + " " + this.lastName;
+    }
 }
