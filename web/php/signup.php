@@ -1,54 +1,53 @@
-<!DOCTYPE html>
-<html>
+<?php
+include 'conn.php';
 
-<head>
-    <title>Sign Up</title>
-    <meta http-equiv="Content-Language" content="en-us" />
-    <meta charset="UTF-8">
-    <meta name="description" content="Sign Up for Film Lookup for Sacramento FamilySearch Library">
-    <meta name="author" content="Francisco Bernal">
-    <link rel="stylesheet" type="text/css" href="../styles/main.css">
-    <script type="text/javascript" src="content.js"></script>
-</head>
-    
-<body onload="setFooter('footer'); setTitle('header');">
-    <header id="header"></header>
-	<?php
-	include 'conn.php';
-	$firstname = $_POST['firstname'];
-	$lastname = $_POST['lastname'];
-	$mobile = $_POST['mobile'];
-	$email = $_POST['email'];
-	$password = $_POST['password'];
-	try {
-		$stmt = $conn->prepare("INSERT INTO public.user (firstName, lastName, email, mobile, password) VALUES (:firstName, :lastName, :email, :mobile, :password)");
-		$stmt->bindValue(':firstName', $firstname, PDO::PARAM_STR);
-		$stmt->bindValue(':lastName', $lastname, PDO::PARAM_STR);
-		$stmt->bindValue(':email', $email, PDO::PARAM_STR);
-		$stmt->bindValue(':mobile', $mobile, PDO::PARAM_STR);
-		$stmt->bindValue(':password', $password, PDO::PARAM_STR);
-		$stmt->execute();
+$response = array();
 
-		echo "<center>";
-		echo "<p>Account created for $firstname!!!</p>";
-		echo "<button onclick=\"location.href='../index.html';\">Go to Home</button>";
-		echo "</center>";        
-	} catch (PDOException $e) {
-		if ($e->getCode() == 23505) {
-			echo "<center>";
-			echo "<p>Account was not created.</p>";
-			echo "<p>E-mail '$email' is already taken.</p>";
-			echo "<button onclick=\"window.history.back()\">Go Back</button>";
-			echo "<button onclick=\"location.href='../login.html';\">Login</button>";
-			echo "</center>";
-		} else {
-			// an error other than duplicate entry occurred
-			echo $e->getMessage();
-		}
-	}
-	$conn = null;
-	?>
-    <footer id="footer"></footer>
-</body>
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $mobile = $_POST['mobile'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    try {
+        $stmt = $conn->prepare("INSERT INTO public.user (firstName, lastName, email, mobile, password) VALUES (:firstName, :lastName, :email, :mobile, :password)");
+        $stmt->bindValue(':firstName', $firstName, PDO::PARAM_STR);
+        $stmt->bindValue(':lastName', $lastName, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':mobile', $mobile, PDO::PARAM_STR);
+        $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+        $stmt->execute(); 
+        
+        $stmt = $conn->prepare("SELECT firstname, lastname, email, mobile, name FROM public.user INNER JOIN public.role r ON role_id = r.id WHERE email = :email AND password = :password");
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-</html>
+        if (count($rows) > 0) {
+            $user = array('firstName'=>$rows[0]['firstname'],
+                          'lastName'=>$rows[0]['lastname'],
+                          'email'=>$rows[0]['email'],
+                          'mobile'=>$rows[0]['mobile'],
+                          'role'=>$rows[0]['name']);
+            
+            $response = array('success' => true,
+                              'error' => null,
+                              'user' => $user);
+        } else {
+            $response = array('success' => false,
+                              'error' => "Email and password do not match our records.",
+                              'user' => null);
+        }
+    } catch (PDOException $e) {
+        $response = array('success' => false,
+                          'error' => $e->getMessage(),
+                          'user' => null);
+    }
+}
+
+echo json_encode($response);
+
+$conn = null;
+
+?>

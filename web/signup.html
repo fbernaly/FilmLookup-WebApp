@@ -1,47 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>Sign Up</title>
-    <meta http-equiv="Content-Language" content="en-us" />
     <meta charset="UTF-8">
-    <meta name="description" content="Sign Up for Film Lookup for Sacramento FamilySearch Library">
+    <meta name="description" content="Film Lookup Service">
     <meta name="author" content="Francisco Bernal">
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <script type="text/javascript" src="scripts/validation.js"></script>
-    <script type="text/javascript" src="scripts/content.js"></script>
+    <meta http-equiv="Content-Language" content="en-us">
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <script type="text/javascript" src="js/signup.js"></script>
 </head>
-    
-<body onload="setFooter('footer'); setNavBar('header');">
-    <header id="header"></header>
-    <div>
-        <br>
-        <center>
-            <form action="scripts/signup.php" onsubmit="return validatePasswords()" method="post"> First Name *
-                <br>
-                <input type="text" id="firstname" name="firstname" placeholder="First Name" required />
-                <br> Last Name *
-                <br>
-                <input type="text" id="lastname" name="lastname" placeholder="Last Name" required />
-                <br>Mobile *
-                <br>
-                <input type="tel" id="mobile" name="mobile" pattern="^\d{10}$" placeholder="Please enter a ten digit phone number" required />
-                <br>Email *
-                <br>
-                <input type="email" id="email" name="email" placeholder="e.g. swapnil@example.com" title="Enter a valid email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required />
-                <br>Password *
-                <br>
-                <input type="password" name="password" id="password" placeholder="Password must contain 1 uppercase, lowercase and number" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required />
-                <br>Confirm Password *
-                <br>
-                <input type="password" name="confirm_password" id="confirm_password" placeholder="Password must contain 1 uppercase, lowercase and number" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required />
-                <br>
-                <br>
-                <button type="submit">Sign Up</button>
-            </form>
-        </center>
+
+<body>
+    <div class="container">
+
+        <header class="header">
+            <h1>Film Lookup</h1>
+            <h2>Sing Up</h2>
+        </header>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+
+        <article class="article">
+            <center>
+                <form>
+                    First Name *
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name" required />
+                    <br> Last Name *
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" required />
+                    <br>Mobile *
+                    <input type="tel" id="mobile" name="mobile" pattern="^\d{10}$" placeholder="Enter a ten digit phone number" required />
+                    <br>Email *
+                    <input type="email" id="email" name="email" placeholder="Enter a valid email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required />
+                    <br>Password *
+                    <input type="password" name="password" id="password" placeholder="Password must contain 1 uppercase, lowercase and number" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required />
+                    <br>Confirm Password *
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Password must contain 1 uppercase, lowercase and number" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required />
+                    <br>
+                    <br>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </center>
+        </article>
+
+        <footer class="footer">
+            <p>&copy; 2017 fbernaly</p>
+        </footer>
     </div>
-    <footer id="footer"></footer>
 </body>
 
 </html>
