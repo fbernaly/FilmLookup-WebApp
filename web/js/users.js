@@ -5,6 +5,12 @@ window.onload = function () {
     }
 
     user = new User(JSON.parse(sessionStorage.user))
+
+    if (!user.isAuthenticated || !user.isAdmin()) {
+        window.location.href = "index.html";
+        return;
+    }
+
     getUsers();
 };
 
@@ -92,9 +98,7 @@ function updateRole(id, admin) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-            if (xmlhttp.status == 200) {
-                console.log(xmlhttp.responseText)
-            } else {}
+            if (xmlhttp.status == 200) {} else {}
         }
     };
     xmlhttp.open('PUT', 'php/users.php');
