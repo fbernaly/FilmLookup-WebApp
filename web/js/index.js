@@ -25,11 +25,6 @@ function setupNav() {
     document.getElementById('ul_nav').innerHTML = html
 }
 
-function logout() {
-    sessionStorage.user = '{}';
-    window.location.href = "index.html";
-}
-
 function setupHeaderSubtitle() {
     document.getElementById('h2_title').innerHTML = 'Welcome' + (user.isAuthenticated() ? ' ' + user.firstName : '')
 }
