@@ -1,27 +1,26 @@
 window.onload = function () {
-    sessionStorage.user = '{}'
-    sessionStorage.user = '{"id":1,"firstName":"Francisco","lastName":"Bernal","email":"fbernaly@gmail.com","mobile":"7063511553","role":"admin"}'
-
+    if (!sessionStorage.user) {
+        sessionStorage.user = '{}';
+    }
+    
     user = new User(JSON.parse(sessionStorage.user))
-
     setupHeaderSubtitle()
     setupNav()
     showAdminOptions()
-
     getFilms();
 };
 
 function setupNav() {
     var html = '<li><a href="#">Home</a></li>'
     if (user.isAuthenticated()) {
-        html += '<li><a href="/account">My Account</a></li>'
+        html += '<li><a href="account.html">My Account</a></li>'
         if (user.isAdmin()) {
-            html += '<li><a href="/users">Users</a></li>'
+            html += '<li><a href="users.html">Users</a></li>'
         }
         html += '<li><a href="/logout">Log Out</a></li>'
     } else {
-        html += '<li><a href="/login">Login</a></li>'
-        html += '<li><a href="/signup">Sign Up</a></li>'
+        html += '<li><a href="login.html">Login</a></li>'
+        html += '<li><a href="signup.html">Sign Up</a></li>'
     }
     document.getElementById('ul_nav').innerHTML = html
 }

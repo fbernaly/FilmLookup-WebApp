@@ -1,33 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>Login</title>
-    <meta http-equiv="Content-Language" content="en-us" />
     <meta charset="UTF-8">
-    <meta name="description" content="Login for Film Lookup for Sacramento FamilySearch Library">
+    <meta name="description" content="Film Lookup Service">
     <meta name="author" content="Francisco Bernal">
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <script type="text/javascript" src="scripts/lookup.js"></script>
-    <script type="text/javascript" src="scripts/content.js"></script>
+    <meta http-equiv="Content-Language" content="en-us">
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
 </head>
 
-<body onload="setFooter('footer'); setNavBar('header');">
-    <header id="header"></header>
-    <div>
-        <center>
-            <br>
-            <input type="text" name="email" id="email" placeholder="Enter your email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required />
-            <br> Password:
-            <br>
-            <input type="password" name="password" id="password" placeholder="Enter your password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
-            <br>
-            <button onclick="login()">Log In</button>
-            <br>
-            <div id="response"></div>
-        </center>
+<body>
+    <div class="container">
+
+        <header class="header">
+            <h1>Film Lookup</h1>
+            <h2>Login</h2>
+        </header>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+
+        <article class="article">
+            <center>
+                <form>
+                    E-mail:
+                    <input type="text" name="email" id="email" placeholder="Enter your email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required />
+                    <br> Password:
+                    <input type="password" name="password" id="password" placeholder="Enter your password" required="required" />
+                    <br>
+                    <button>Log In</button>
+                </form>
+            </center>
+        </article>
+
+        <footer class="footer">
+            <p>&copy; 2017 fbernaly</p>
+        </footer>
     </div>
-    <footer id="footer"></footer>
 </body>
 
 </html>
