@@ -201,9 +201,9 @@ function deleteFilm(id, number, tr) {
             } else {}
         }
     };
-    xmlhttp.open('DELETE', 'api/films/' + id);
+    xmlhttp.open('DELETE', 'php/films.php');
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xmlhttp.send();
+    xmlhttp.send('id=' + id);
 }
 
 function searchFilmSiblingInTable() {
