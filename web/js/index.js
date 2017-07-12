@@ -110,7 +110,7 @@ function addRow(film, sibling) {
     addColumn(tr, film['film_number']);
     addColumn(tr, film['location']);
     addColumn(tr, film['created_at']);
-    if (user.isAdmin()) {
+    if (user.isAuthenticated() && user.isAdmin()) {
         addDeleteButton(tr, film['id'], film['film_number']);
     }
     if (sibling) {
@@ -159,7 +159,7 @@ function hideNotFound() {
 
 function showAddButton() {
     var button = document.getElementById("add_button");
-    if (user.isAdmin()) {
+    if (user.isAuthenticated() && user.isAdmin()) {
         button.style.display = ""
     }
 }
