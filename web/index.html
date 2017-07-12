@@ -1,33 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>Film Lookup</title>
-    <meta http-equiv="Content-Language" content="en-us" />
     <meta charset="UTF-8">
-    <meta name="description" content="Film Lookup for Sacramento FamilySearch Library">
+    <meta name="description" content="Film Lookup Service">
     <meta name="author" content="Francisco Bernal">
-    <link rel="stylesheet" type="text/css" href="styles/main.css"> 
-    <script type="text/javascript" src="scripts/lookup.js"></script>
-    <script type="text/javascript" src="scripts/content.js"></script>
+    <meta http-equiv="Content-Language" content="en-us">
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <script type="text/javascript" src="js/index.js"></script>
 </head>
 
-<body onload="setFooter('footer'); setNavBar('header'); setWelcomeMessage('message');">
-    <header id="header"></header>
-    <div>
-        <br>
-        <div id="message"></div>
-        <br>
-        <br>
-        <center> Enter the film number you are looking for:
-            <br>
-            <input type="text" id="film_number" placeholder="Film number">
-            <br>
-            <button onclick="lookup()">Search</button>
-            <div id="response"></div>
-        </center>
+<body>
+    <div class="container">
+
+        <header class="header">
+            <h1>Film Lookup</h1>
+            <h2 id="h2_title">
+                Welcome
+            </h2>
+        </header>
+
+        <nav class="nav">
+            <ul id="ul_nav">
+            </ul>
+        </nav>
+
+        <article class="article">
+            <center>
+                <p>Welcome to the Film Lookup Service for the Sacramento FamilySearch Library</p>
+
+                <p id="p_admi" style="display:none">As an admin you can Add and Delete films from the data base.</p>
+
+                <input type="text" class="expandable" id="film_number" name="number" onkeyup="lookup()" placeholder="Search by film number...">
+
+                <button onclick="addFilm()" id="add_button" style="display:none;">Add</button>
+                <br>
+
+                <input type="radio" name="method" onchange="lookup()" id="matching" checked> Matching<br>
+                <input type="radio" name="method" onchange="lookup()" id="containing"> Containing<br>
+
+                <div id="loader"></div>
+
+                <table id="films_table" style="visibility: hidden; opacity: 0;">
+                    <tr class="tr_header">
+                        <th>Film</th>
+                        <th>Location</th>
+                        <th>Created at</th>
+                        <th id="th_delete" style="display:none">Delete</th>
+                    </tr>
+                </table>
+
+                <center id="toast">
+                    <p id="ptoast">Not Found</p>
+                </center>
+            </center>
+        </article>
+
+        <footer class="footer">
+            <p>&copy; 2017 fbernaly</p>
+        </footer>
     </div>
-    <footer id="footer"></footer>
 </body>
 
 </html>
