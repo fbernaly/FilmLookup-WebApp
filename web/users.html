@@ -1,25 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Film Lookup</title>
-    <meta http-equiv="Content-Language" content="en-us" />
+    <title>Login</title>
     <meta charset="UTF-8">
-    <meta name="description" content="User for Film Lookup for Sacramento FamilySearch Library">
+    <meta name="description" content="Film Lookup Service">
     <meta name="author" content="Francisco Bernal">
-    <link rel="stylesheet" type="text/css" href="styles/main.css"> 
-    <script type="text/javascript" src="scripts/lookup.js"></script>
-    <script type="text/javascript" src="scripts/content.js"></script>
+    <meta http-equiv="Content-Language" content="en-us">
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <script type="text/javascript" src="js/users.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
+    <script type="text/javascript" src="js/logout.js"></script>
 </head>
 
-<body onload="setFooter('footer'); setNavBar('header'); getUsers('all_users');">
-    <header id="header"></header>
-    <div>
-        <br>
-        <h3>All users</h3>
-        <center id="all_users"></center>
+<body>
+    <div class="container">
+
+        <header class="header">
+            <h1>Film Lookup</h1>
+            <h2>Users</h2>
+        </header>
+
+        <nav class="nav">
+            <ul id="ul_nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="account.html">My Account</a></li>
+                <li><a href="#">Users</a></li>
+                <li><a onclick="logout()">Log Out</a></li>
+            </ul>
+        </nav>
+
+        <article class="article">
+            <br>
+            <p>As an Admin, you can grant or remove privileges to other users.</p>
+
+            <center>
+                <div id="loader"></div>
+
+                <table id="users_table" style="visibility: hidden; opacity: 0;">
+                    <tr class="tr_header">
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>E-mail</th>
+                        <th>Role</th>
+                    </tr>
+                </table>
+            </center>
+        </article>
+
+        <footer class="footer">
+            <p>&copy; 2017 fbernaly</p>
+        </footer>
     </div>
-    <footer id="footer"></footer>
 </body>
 
 </html>
