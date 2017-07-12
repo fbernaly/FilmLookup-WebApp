@@ -171,11 +171,9 @@ input[type=text].expandable {
 }
 
 
-/*
 input[type=text].expandable:focus {
   width: 80%;
 }
-*/
 
 #loader {
     border: 5px solid #eee;
