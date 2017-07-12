@@ -31,8 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } catch (PDOException $e) {
         $response = array('success' => false,
-                              'error' => $e->getMessage(),
-                              'user' => null);
+                          'error' => $e->getMessage(),
+                          'user' => null);
     }
 }
 
