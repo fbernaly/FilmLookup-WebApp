@@ -176,6 +176,7 @@ input[type=password] {
 }
 
 input[type=text].searchable {
+    width: 35%;
     background-color: white;
     background-image: url('../ima/loupe.png');
     background-position: 10px 10px;
