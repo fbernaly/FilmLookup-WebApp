@@ -1,10 +1,10 @@
 window.onload = function () {
-    if (!sessionStorage.user || sessionStorage.user == '{}') {
+    if (!localStorage.user || localStorage.user == '{}') {
         window.location.href = "index.html";
         return;
     }
 
-    user = new User(JSON.parse(sessionStorage.user))
+    user = new User(JSON.parse(localStorage.user))
     
     if (!user.isAuthenticated) {
         window.location.href = "index.html";

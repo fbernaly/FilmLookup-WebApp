@@ -1,9 +1,9 @@
 window.onload = function () {
-    if (!sessionStorage.user) {
-        sessionStorage.user = '{}';
+    if (!localStorage.user) {
+        localStorage.user = '{}';
     }
     
-    user = new User(JSON.parse(sessionStorage.user))
+    user = new User(JSON.parse(localStorage.user))
     setupHeaderSubtitle()
     setupNav()
     showAdminOptions()

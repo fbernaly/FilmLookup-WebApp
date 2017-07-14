@@ -1,4 +1,4 @@
 function logout() {
-    sessionStorage.user = '{}';
+    localStorage.user = '{}';
     window.location.href = "index.html";
 }
