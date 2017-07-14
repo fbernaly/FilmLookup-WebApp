@@ -155,22 +155,26 @@ table tr:hover {
     color: black;
 }
 
-input[type=text].expandable {
-    width: 80%;
+input[type=text],
+input[type=tel],
+input[type=email],
+input[type=password] {
+    width: 60%;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input[type=text].searchable {
     background-color: white;
     background-image: url('../ima/loupe.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     transition: width 0.4s ease-in-out;
-}
-
-input[type=text].expandable:focus {
-    width: 80%;
 }
 
 button {
