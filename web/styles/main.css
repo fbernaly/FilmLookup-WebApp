@@ -173,6 +173,14 @@ input[type=text].expandable:focus {
     width: 80%;
 }
 
+button {
+    padding: 10px;
+    border-radius: 7px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
 #loader {
     border: 5px solid #eee;
     border-radius: 50%;
