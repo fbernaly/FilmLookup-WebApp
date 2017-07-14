@@ -67,7 +67,7 @@ pre {
     color: #777;
 }
 
-@media all and (min-width: 700px) {
+@media (min-width: 700px) {
     .nav {
         text-align: left;
         flex: 1 auto;
