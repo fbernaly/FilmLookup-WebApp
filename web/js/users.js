@@ -61,8 +61,7 @@ function addUserRow(user) {
     var table = document.getElementById("users_table");
     var tr = document.createElement("TR");
     addTextColumn(tr, user.id);
-    addTextColumn(tr, user.firstName);
-    addTextColumn(tr, user.lastName);
+    addTextColumn(tr, user.fullName());
     addTextColumn(tr, user.email);
     addToggleColumn(tr, user.id, user.isAdmin());
     table.appendChild(tr);
