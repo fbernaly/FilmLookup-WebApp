@@ -2,12 +2,15 @@
     font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
 }
 
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 .container {
     display: flex;
     flex-flow: row wrap;
     text-align: center;
-    max-width: 1000px;
-    margin: 0 auto;
 }
 
 .container>* {
@@ -64,12 +67,12 @@ pre {
     color: #777;
 }
 
-@media all and (min-width: 600px) {
+@media all and (min-width: 700px) {
     .nav {
         text-align: left;
         flex: 1 auto;
         order: 1;
-        max-width: 150px;
+        max-width: 180px;
         background: white;
     }
     .nav li {
@@ -83,10 +86,6 @@ pre {
     .article {
         flex: 5 0px;
         order: 2;
-        /*
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-*/
     }
     .footer {
         order: 3;
@@ -170,9 +169,8 @@ input[type=text].expandable {
     transition: width 0.4s ease-in-out;
 }
 
-
 input[type=text].expandable:focus {
-  width: 80%;
+    width: 80%;
 }
 
 #loader {
